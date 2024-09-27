@@ -23,7 +23,7 @@ public abstract class AbstractCommand implements CommandExecutor {
     public void execute(CommandSender sender, String[] args) {
         if (args.length < 1) return;
         if (!(sender instanceof Player player)) return;
-        SubCommand command = commands.get(args[1]);
+        SubCommand command = commands.get(args[0]);
         if (command instanceof PlayerRequired pCommand) pCommand.setPlayer(player);
         command.execute(args);
     }
